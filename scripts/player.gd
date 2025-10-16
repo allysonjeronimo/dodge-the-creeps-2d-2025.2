@@ -6,9 +6,6 @@ var screen_size
 var speed = 400
 var velocity = Vector2.ZERO
 
-func _init():
-	pass
-
 func start(pos):
 	position = pos
 	show()
@@ -19,6 +16,7 @@ func start(pos):
 func _ready():
 	# obtem tamanho da tela
 	screen_size = get_viewport_rect().size
+	hide()
 	
 # Chamado em loop 
 func _process(delta):
