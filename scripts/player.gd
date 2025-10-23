@@ -9,7 +9,7 @@ var velocity = Vector2.ZERO
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.enabled = true
+	$CollisionShape2D.disabled = false
 	
 # _ready() função de inicialização, executa depois de todos
 # os nodes da cena iniciarem	
