@@ -4,15 +4,23 @@ var score = 0
 @export var mob_scene: PackedScene
 
 func _ready() -> void:
-	start_game()
+	pass
 	
 func start_game():
 	score = 0
 	$StartTimer.start()
 	$Player.start($StartPosition.position)
+	$HUD.update_score(score)
+	get_tree().call_group("mobs", "queue_free")
 
+func game_over():
+	$MobTimer.stop()
+	$ScoreTimer.stop()
+	$HUD.show_game_over()
+	
 func _on_score_timer_timeout() -> void:
 	score += 1
+	$HUD.update_score(score)
 
 func _on_mob_timer_timeout() -> void:
 	# cria novo inimigo
